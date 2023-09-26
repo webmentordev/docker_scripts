@@ -1,0 +1,2 @@
+## About The Setup  
+This docker-compose file will start mysql, phpmadmin and Wordpress on the system. It is just a simple setup which makes wordpress and phpmyadmin accessible over the ip address with port number. Read docker-compose.yml file for ports.
