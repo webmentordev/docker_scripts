@@ -1,0 +1,3 @@
+## About The Setup
+
+This docker compose file will run MySQL, Wordpress, Nginx & phpMyadmin. Nginx will act as a proxy. In short, nginx will redirect from domain to a service (wordpress or phpmyadmin, mysql is not direct accessible). So there are two nginx config files attached with the repo, to make change do two things, first, change the file name "main-domain.com.conf" to your domain e.g ahmerprojects.online.conf and in the file server_name to same domain. 2nd, do the same process for other file but keep phpmyadmin in name, file name and in file like "server_name phpmyadmin.ahmerprojects.online"

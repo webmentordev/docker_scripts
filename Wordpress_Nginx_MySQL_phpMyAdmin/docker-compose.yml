@@ -1,0 +1,49 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress_user
+      MYSQL_PASSWORD: wordpress_password
+      MYSQL_ROOT_PASSWORD: wordpress_password
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress_user
+      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wordpress_data:/var/www/html
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 8082:80
+
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx_config:/etc/nginx/conf.d # Add a volume for Nginx config. Ignore it
+
+volumes:
+  db_data:
+  wordpress_data:
+  nginx_config:
