@@ -1,0 +1,17 @@
+version: '3'
+services:
+  qbittorrent:
+    image: linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000  # It is Root user ID
+      - PGID=1000  # It is Root user ID
+      - TZ=Asia/Karachi # Change it to your time zome
+    volumes:
+      - ./config:/config # Save your cache, like track how much downloaded or left
+      - ./downloads:/downloads # Where your files will be downloaded
+    ports:
+      - "6881:6881"
+      - "6881:6881/udp"
+      - "8080:8080" # Accessible over http://localhost:8080
+    restart: unless-stopped # Will start if there is other required service is not running

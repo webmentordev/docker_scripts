@@ -16,6 +16,8 @@ services:
     restart: always
     ports:
       - 8081:80
+    depends_on:
+      - db
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress_user
