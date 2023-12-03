@@ -1,0 +1,25 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      # please change these creds to something secure
+      # Delete postgress_data folder to fresh start
+      POSTGRES_DB: postgresdb # postgress database
+      POSTGRES_USER: postgresuser # postgress username
+      POSTGRES_PASSWORD: postgrespass # postgress password
+    ports:
+      - "5432:5432" # Postgres Port
+    volumes:
+    # Create volume in your host disk
+      - ./postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    ports:
+      - "8008:8080"
+    depends_on:
+      - postgres # It is the service name. Use it as Server in Adminer
+
+volumes:
+  postgres_data:
