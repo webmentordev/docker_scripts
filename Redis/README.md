@@ -1,0 +1,1 @@
+Start Redis with RedisInsight (Dashboard for monitoring redis server)
