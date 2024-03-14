@@ -1,8 +1,9 @@
 version: '3'
 services:
   discord-bot:
-    build: .
+    # name of image should the name you provided while building the image
+    image: user_name/image_name
     environment:
       # Paste your token_id here
-      - TOKEN=discord_bot_token
+      - TOKEN=token_here
     restart: always

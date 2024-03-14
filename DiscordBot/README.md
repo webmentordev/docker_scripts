@@ -1,3 +1,3 @@
 ## About the script
-First build the Dockerfile. Your bot files are in same root directory with the Dockerfile.  
-To start the bot, use the docker-compose.
+First build the Dockerfile. Your bot files are in app directory.  
+To start the bot, use the docker-compose after completing the build.
