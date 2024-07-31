@@ -10,12 +10,11 @@ services:
       MYSQL_ROOT_PASSWORD: wordpress_password
     volumes:
       - ./db_data:/var/lib/mysql
-
   wordpress:
     image: wordpress
     restart: always
     ports:
-      - 8081:80
+      - 80:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: wordpress_user
@@ -23,7 +22,6 @@ services:
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - ./wordpress_data:/var/www/html
-
   phpmyadmin:
     image: phpmyadmin
     restart: always
@@ -32,8 +30,7 @@ services:
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     ports:
-      - 8082:80
-
+      - 8080:80
 volumes:
   db_data:
   wordpress_data:

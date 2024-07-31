@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Update this to a new Pocketbase Version if there is any available
-ARG PB_VERSION=0.19.2
+ARG PB_VERSION=0.22.18
 
 RUN apk add --no-cache \
     unzip \
