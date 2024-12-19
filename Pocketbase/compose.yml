@@ -1,4 +1,3 @@
-version: "3"
 services:
   pocketbase:
     image: ahmertahir/pocketbase:latest
